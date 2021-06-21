@@ -17,7 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="test_urls.json" />
+      <EmbeddedResource Include="urls.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>

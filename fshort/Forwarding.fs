@@ -5,16 +5,8 @@ open Microsoft.AspNetCore.Http
 
 type Urls = Map<string, string>
 
-let links: Urls =
-    Map.empty
-    |> Map.add "gog" "https://google.com"
-    |> Map.add "ytbe" "https://youtube.com"
-    
-let getLongUrl shortUrl =
-    Map.tryFind shortUrl links
-
-let forward (shortUrl: string) : HttpHandler =
+let forward (shortUrl: string) (urlMapping: Urls) : HttpHandler =
     fun (next : HttpFunc) (ctx : HttpContext) ->
-        match getLongUrl shortUrl with
+        match Map.tryFind shortUrl urlMapping with
         | Some url -> redirectTo false url next ctx
         | None -> RequestErrors.NOT_FOUND "Not Found" next ctx
