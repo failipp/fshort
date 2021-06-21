@@ -6,13 +6,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Json.fs" />
         <Compile Include="Forwarding.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Giraffe" Version="5.0.0" />
-      <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="test_urls.json" />
     </ItemGroup>
 
 </Project>
